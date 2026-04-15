@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="['Brand Name'] — Authentic Kenyan Herbal Medicine. Natural remedies rooted in African tradition, crafted with care for your wellness.">
+    <meta name="keywords" content="herbal medicine Kenya, natural remedies, herbal clinic, immune boosters, wellness, Miti ni Dawa">
+    <meta name="author" content="['Brand Name']">
+    <title>['Brand Name'] | Natural Herbal Wellness — Kenya</title>
+
+    <!-- Google Fonts: Playfair Display (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           ['Brand Name'] — Starter Package Demo Site
+           Category : Kenyan Herbal Medicine
+           Built by : MortApps Studios
+           Contact  : info@mortappsstudios.com | +254 113 400 063
+           ========================================================= */
+
+        /* ---------- 0. Design Tokens ---------- */
+        :root {
+            /* Palette — earth tones inspired by Kenyan landscapes */
+            --c-primary:       #1B4332;
+            --c-primary-light: #2D6A4F;
+            --c-primary-dark:  #0B2618;
+            --c-secondary:     #B8860B;
+            --c-secondary-light:#D4A843;
+            --c-accent:        #52796F;
+            --c-accent-light:  #74A69D;
+
+            /* Surfaces */
+            --c-bg:            #FDFBF5;
+            --c-bg-warm:       #F9F5EB;
+            --c-bg-green:      #EFF7EF;
+            --c-white:         #FFFFFF;
+
+            /* Text */
+            --c-text:          #1A1A1A;
+            --c-text-body:     #3D3D3D;
+            --c-text-muted:    #7A7A7A;
+            --c-text-light:    #A0A0A0;
+
+            /* Borders & shadows */
+            --c-border:        #E5E0D5;
+            --shadow-sm:       0 1px 3px rgba(27,67,50,0.06);
+            --shadow-md:       0 4px 16px rgba(27,67,50,0.08);
+            --shadow-lg:       0 8px 32px rgba(27,67,50,0.12);
+
+            /* Typography */
+            --font-heading:    'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing & sizing */
+            --max-width:       1140px;
+            --radius:          12px;
+            --radius-sm:       8px;
+            --radius-lg:       16px;
+            --nav-height:      72px;
+            --transition:      0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ---------- 1. Reset & Base ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            color: var(--c-text-body);
+            background-color: var(--c-bg);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button, input, textarea, select {
+            font-family: inherit;
+            font-size: inherit;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        /* Focus indicators for keyboard accessibility (WCAG 2.4.7) */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--c-secondary);
+            outline-offset: 2px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* Skip link for keyboard accessibility */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 10000;
+            background: var(--c-secondary);
+            color: var(--c-white);
+            padding: 8px 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-radius: 0 0 var(--radius-sm) 0;
+            transition: left 0.2s ease;
+        }
+
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* ---------- 2. Utility Classes ---------- */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-alt {
+            background-color: var(--c-bg-warm);
+        }
+
+        .section-green {
+            background-color: var(--c-bg-green);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-secondary);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            color: var(--c-primary);
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            color: var(--c-text-muted);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* Fade-in animation for scroll reveal — lightweight, no repaints */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            will-change: auto;
+        }
+
+        /* Staggered delays for grid children — keeps it natural */
+        .products-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .products-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+        .products-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+        .products-grid .reveal:nth-child(5) { transition-delay: 0.32s; }
+        .products-grid .reveal:nth-child(6) { transition-delay: 0.40s; }
+
+        .trust-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .trust-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+        .trust-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+        .testimonials-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .testimonials-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+
+        /* ---------- 3. Navigation ---------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            transition: background-color var(--transition), box-shadow var(--transition);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(253, 251, 245, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--c-white);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color var(--transition);
+            z-index: 1001;
+        }
+
+        .navbar.scrolled .nav-logo {
+            color: var(--c-primary);
+        }
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--c-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--c-text-body);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--c-secondary);
+            border-radius: 2px;
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--c-secondary);
+            color: var(--c-white);
+            padding: 8px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            transition: background-color var(--transition);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--c-secondary-light);
+        }
+
+        /* Hamburger menu */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 4px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--c-white);
+            border-radius: 2px;
+            transition: transform var(--transition), opacity var(--transition);
+        }
+
+        .navbar.scrolled .nav-hamburger span {
+            background-color: var(--c-primary);
+        }
+
+        .nav-hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile overlay */
+        .nav-mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: var(--c-primary-dark);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity var(--transition), visibility var(--transition);
+        }
+
+        .nav-mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .nav-mobile-overlay a {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--c-white);
+            font-weight: 500;
+        }
+
+        .nav-mobile-overlay a:hover {
+            color: var(--c-secondary);
+        }
+
+        /* ---------- 4. Hero Section ---------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(
+                165deg,
+                var(--c-primary-dark) 0%,
+                var(--c-primary) 40%,
+                var(--c-primary-light) 70%,
+                var(--c-accent) 100%
+            );
+            overflow: hidden;
+        }
+
+        /* Decorative botanical shapes */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -40px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(82, 121, 111, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 680px;
+            padding-top: calc(var(--nav-height) + 40px);
+            animation: hero-fade-in 0.8s ease-out both;
+        }
+
+        @keyframes hero-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--c-secondary-light);
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--c-secondary);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+            font-weight: 700;
+            color: var(--c-white);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--c-secondary-light);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 540px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--c-secondary);
+            color: var(--c-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--c-secondary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(184, 134, 11, 0.35);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--c-white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 56px;
+            padding-top: 36px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--c-secondary-light);
+            line-height: 1.2;
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin-top: 4px;
+        }
+
+        /* Scroll indicator */
+        .hero-scroll {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+            animation: scroll-bounce 2s infinite;
+        }
+
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ---------- 5. About Section ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(
+                135deg,
+                var(--c-primary) 0%,
+                var(--c-accent) 50%,
+                var(--c-primary-light) 100%
+            );
+        }
+
+        /* About section photo */
+        .about-image-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease-out;
+        }
+
+        .about-image:hover .about-image-photo {
+            transform: scale(1.03);
+        }
+
+        .about-image-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(27, 67, 50, 0.8);
+            border-radius: var(--radius-sm);
+            padding: 8px 14px;
+            font-size: 0.78rem;
+            color: var(--c-white);
+            font-weight: 500;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .about-text .section-label {
+            text-align: left;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--c-primary);
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--c-text-body);
+            margin-bottom: 16px;
+            line-height: 1.75;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--c-primary);
+        }
+
+        .about-feature-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--c-bg-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ---------- 6. Products Section ---------- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--c-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--c-border);
+            transition: transform var(--transition), box-shadow var(--transition);
+            contain: layout style paint;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .product-image-icon {
+            position: relative;
+            z-index: 1;
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .product-category {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--c-primary);
+            z-index: 1;
+        }
+
+        .product-body {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--c-primary);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.88rem;
+            color: var(--c-text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* ---------- 7. Trust / Benefits Section ---------- */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .trust-card {
+            text-align: center;
+            padding: 36px 20px;
+            background: var(--c-white);
+            border-radius: var(--radius);
+            border: 1px solid var(--c-border);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .trust-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .trust-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 18px;
+            background: var(--c-bg-green);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            color: var(--c-primary);
+            margin-bottom: 8px;
+        }
+
+        .trust-card p {
+            font-size: 0.85rem;
+            color: var(--c-text-muted);
+            line-height: 1.6;
+        }
+
+        /* ---------- 8. Testimonials Section ---------- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--c-white);
+            border-radius: var(--radius);
+            padding: 28px;
+            border: 1px solid var(--c-border);
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-quote-mark {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--c-secondary);
+            line-height: 1;
+            margin-bottom: -8px;
+            display: block;
+        }
+
+        .testimonial-text {
+            font-size: 0.92rem;
+            color: var(--c-text-body);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 14px;
+            color: var(--c-secondary);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--c-border);
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--c-primary-light), var(--c-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-white);
+            font-weight: 600;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--c-primary);
+        }
+
+        .testimonial-location {
+            font-size: 0.78rem;
+            color: var(--c-text-muted);
+        }
+
+        /* ---------- 9. Contact Section ---------- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 700px;
+            margin: 0 auto;
+            gap: 28px;
+        }
+
+        .contact-info-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .contact-info-card {
+            background: var(--c-white);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-sm);
+            padding: 18px;
+            transition: border-color var(--transition);
+        }
+
+        .contact-info-card:hover {
+            border-color: var(--c-primary-light);
+        }
+
+        .contact-info-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--c-bg-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-info-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--c-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-info-value {
+            font-size: 0.9rem;
+            color: var(--c-primary);
+            font-weight: 500;
+        }
+
+        .contact-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: var(--c-white);
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            transition: background-color var(--transition), transform var(--transition);
+        }
+
+        .contact-whatsapp:hover {
+            background-color: #1EBE57;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- 10. Footer ---------- */
+        .footer {
+            background-color: var(--c-primary-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--c-white);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition);
+        }
+
+        .footer-social a:hover {
+            border-color: var(--c-secondary);
+            color: var(--c-secondary);
+            background: rgba(184, 134, 11, 0.08);
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            color: var(--c-white);
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--c-secondary);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact-item-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Footer bottom bar */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-powered {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-powered a {
+            color: var(--c-secondary);
+            font-weight: 600;
+            transition: color var(--transition);
+        }
+
+        .footer-powered a:hover {
+            color: var(--c-secondary-light);
+        }
+
+        /* ---------- 11. Back to Top Button ---------- */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: var(--c-primary);
+            color: var(--c-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--c-primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* ---------- 12. Responsive Design ---------- */
+
+        /* Tablet (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Mobile (max-width: 768px) — performance-optimised */
+        @media (max-width: 768px) {
+            :root {
+                --nav-height: 64px;
+            }
+
+            /* Disable expensive blur effects on mobile for smooth scrolling */
+            .navbar.scrolled {
+                background-color: rgba(253, 251, 245, 1);
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 36px;
+            }
+
+            .hero-content {
+                padding-top: calc(var(--nav-height) + 24px);
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 7vw, 2.6rem);
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .hero-stats {
+                gap: 24px;
+                margin-top: 40px;
+                padding-top: 28px;
+            }
+
+            .hero-stat-value {
+                font-size: 1.4rem;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .product-image {
+                height: 150px;
+            }
+
+            .product-image-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .product-body {
+                padding: 14px;
+            }
+
+            .product-name {
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+
+            .product-desc {
+                font-size: 12px;
+                line-height: 1.5;
+                -webkit-line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .product-category {
+                font-size: 10px;
+                padding: 3px 8px;
+                top: 8px;
+                left: 8px;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .trust-card {
+                padding: 24px 18px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .btn {
+                padding: 12px 22px;
+                font-size: 0.9rem;
+            }
+
+            /* Reduce animation intensity on mobile for smoothness */
+            .reveal {
+                transform: translateY(16px);
+                transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+                will-change: auto;
+            }
+
+            /* Remove staggered delays on mobile — instant is smoother */
+            .products-grid .reveal:nth-child(2),
+            .products-grid .reveal:nth-child(3),
+            .products-grid .reveal:nth-child(4),
+            .products-grid .reveal:nth-child(5),
+            .products-grid .reveal:nth-child(6),
+            .trust-grid .reveal:nth-child(2),
+            .trust-grid .reveal:nth-child(3),
+            .trust-grid .reveal:nth-child(4),
+            .testimonials-grid .reveal:nth-child(2),
+            .testimonials-grid .reveal:nth-child(3) {
+                transition-delay: 0s;
+            }
+
+            /* Lighter hover effects on mobile — no heavy transforms */
+            .product-card:hover,
+            .trust-card:hover,
+            .testimonial-card:hover {
+                transform: none;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .about-image:hover .about-image-photo {
+                transform: none;
+            }
+
+            /* Disable expensive blur on hero badge for mobile */
+            .hero-badge {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+        }
+
+        /* Medium small mobile (max-width: 480px) */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: clamp(1.5rem, 6.5vw, 2rem);
+            }
+
+            .hero-description {
+                font-size: 0.88rem;
+            }
+
+            .hero-stat-value {
+                font-size: 1.2rem;
+            }
+
+            .section-header {
+                margin-bottom: 28px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .products-grid {
+                gap: 10px;
+            }
+
+            .product-image {
+                height: 130px;
+            }
+
+            .product-image-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .product-body {
+                padding: 12px;
+            }
+
+            .product-name {
+                font-size: 13px;
+            }
+
+            .product-desc {
+                font-size: 11px;
+                -webkit-line-clamp: 2;
+            }
+
+            .product-category {
+                font-size: 9px;
+                padding: 2px 7px;
+                top: 6px;
+                left: 6px;
+            }
+
+            .trust-card {
+                padding: 20px 14px;
+            }
+
+            .trust-icon {
+                width: 44px;
+                height: 44px;
+                margin-bottom: 14px;
+            }
+
+            .trust-card h3 {
+                font-size: 0.95rem;
+            }
+
+            .trust-card p {
+                font-size: 0.8rem;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .testimonial-text {
+                font-size: 0.88rem;
+            }
+
+            .testimonial-author-name {
+                font-size: 0.88rem;
+            }
+
+            .testimonial-role {
+                font-size: 0.76rem;
+            }
+
+            .btn {
+                padding: 11px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Small mobile (max-width: 380px) */
+        @media (max-width: 380px) {
+            .container {
+                padding: 0 14px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.3rem, 6vw, 1.7rem);
+            }
+
+            .hero-description {
+                font-size: 0.84rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .hero-stat-value {
+                font-size: 1.1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .products-grid {
+                gap: 8px;
+            }
+
+            .product-image {
+                height: 110px;
+            }
+
+            .product-image-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .product-body {
+                padding: 10px;
+            }
+
+            .product-name {
+                font-size: 12px;
+                margin-bottom: 3px;
+            }
+
+            .product-desc {
+                font-size: 10px;
+                -webkit-line-clamp: 1;
+            }
+
+            .product-category {
+                font-size: 8px;
+                padding: 2px 6px;
+                top: 5px;
+                left: 5px;
+            }
+
+            .trust-card {
+                padding: 18px 12px;
+            }
+
+            .trust-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 12px;
+            }
+
+            .trust-card h3 {
+                font-size: 0.9rem;
+            }
+
+            .trust-card p {
+                font-size: 0.76rem;
+            }
+
+            .testimonial-card {
+                padding: 16px;
+            }
+
+            .testimonial-text {
+                font-size: 0.84rem;
+            }
+
+            .btn {
+                padding: 10px 18px;
+                font-size: 0.82rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .footer {
+                padding: 40px 0 20px;
+            }
+        }
+
+        /* ---------- 13. Print Styles ---------- */
+        @media print {
+            .navbar,
+            .hero-scroll,
+            .back-to-top,
+            .nav-hamburger {
+                display: none !important;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 40px 0;
+            }
+
+            .section {
+                padding: 30px 0;
+            }
+
+            body {
+                color: #000;
+                background: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip to content link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ======================== NAVIGATION ======================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="nav-logo">
+                <span class="nav-logo-icon">
+                    <!-- Leaf icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 17 3.5s1.4 1.5-.6 7.2A7 7 0 0 1 11 20z"/><path d="M11 20a7 7 0 0 0 7-7c0-6-4-9-4-9s-3 3-3 9z"/></svg>
+                </span>
+                <span>['Brand Name']</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact" class="nav-cta">Get in Touch</a>
+            </div>
+
+            <div class="nav-hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile navigation overlay -->
+    <div class="nav-mobile-overlay" id="mobileNav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main id="main-content">
+
+    <!-- ======================== HERO SECTION ======================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Trusted Kenyan Herbal Wellness
+                </div>
+
+                <h1 class="hero-title">
+                    Nature's Best Remedies,<br>
+                    Rooted in <em>African Tradition</em>
+                </h1>
+
+                <p class="hero-description">
+                    We bring you carefully sourced, authentic herbal products that have
+                    nourished communities across Kenya for generations. From immunity
+                    boosters to natural pain relief — wellness, the way nature intended.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-primary">Explore Our Products</a>
+                    <a href="#about" class="btn btn-outline">Our Story</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div>
+                        <div class="hero-stat-value">10+</div>
+                        <div class="hero-stat-label">Years of Experience</div>
+                    </div>
+                    <div>
+                        <div class="hero-stat-value">500+</div>
+                        <div class="hero-stat-label">Herbal Products</div>
+                    </div>
+                    <div>
+                        <div class="hero-stat-value">10K+</div>
+                        <div class="hero-stat-label">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ======================== ABOUT SECTION ======================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Wellness centre photo -->
+                <div class="about-image reveal">
+                    <img
+                        src="https://images.pexels.com/photos/5480236/pexels-photo-5480236.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        alt="Natural dried herbs and mortar — ['Brand Name'] herbal wellness"
+                        class="about-image-photo"
+                        loading="lazy"
+                    >
+                    <span class="about-image-label">
+                        <!-- Map-pin icon -->
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Our Nairobi Wellness Centre
+                    </span>
+                </div>
+
+                <div class="about-text reveal">
+                    <span class="section-label">Our Story</span>
+                    <h2>Bridging Generational Wisdom with Modern Wellness</h2>
+                    <p>
+                        ['Brand Name'] was born from a deep respect for Kenya's rich herbal heritage.
+                        For over a decade, we have worked closely with traditional herbalists and
+                        local farming communities to bring you remedies that are both time-tested
+                        and thoughtfully prepared.
+                    </p>
+                    <p>
+                        Every product in our collection is sourced from organic farms across Kenya
+                        — from the lush highlands of Kiambu to the fertile valleys of Kisumu.
+                        We believe that true wellness begins with nature, and we are committed to
+                        preserving the knowledge that has sustained our communities for centuries.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span class="about-feature-icon">
+                                <!-- Shield-check icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                            </span>
+                            <span>100% Natural Ingredients</span>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">
+                                <!-- Book-open icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            </span>
+                            <span>Lab-Tested for Safety</span>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">
+                                <!-- Globe icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            </span>
+                            <span>Locally Sourced Herbs</span>
+                        </div>
+                        <div class="about-feature">
+                            <span class="about-feature-icon">
+                                <!-- Package icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            </span>
+                            <span>Countrywide Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== PRODUCTS SECTION ======================== -->
+    <section class="section section-alt" id="products">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Our Products</span>
+                <h2 class="section-title">Herbal Remedies for Everyday Wellness</h2>
+                <p class="section-subtitle">
+                    Explore our carefully curated range of natural products, each designed
+                    to support a specific aspect of your health and vitality.
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Immunity Booster -->
+                <div class="product-card reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #2D6A4F, #1B4332);">
+                        <span class="product-category">Immunity</span>
+                        <div class="product-image-icon">
+                            <!-- Heart icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Immunity Defence Blend</h3>
+                        <p class="product-desc">
+                            A powerful combination of Moringa, Neem, and Turmeric to strengthen
+                            your body's natural defences. Ideal for daily wellness support.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 2: Digestive Health -->
+                <div class="product-card reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #52796F, #3E5E55);">
+                        <span class="product-category">Digestive</span>
+                        <div class="product-image-icon">
+                            <!-- Droplet icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Digestive Comfort Tea</h3>
+                        <p class="product-desc">
+                            A soothing herbal blend of Ginger, Aloe Vera, and Lemongrass that
+                            promotes healthy digestion and relieves stomach discomfort naturally.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 3: Pain Relief -->
+                <div class="product-card reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #B8860B, #8B6508);">
+                        <span class="product-category">Pain Relief</span>
+                        <div class="product-image-icon">
+                            <!-- Activity/pulse icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Joint & Muscle Relief Oil</h3>
+                        <p class="product-desc">
+                            A traditional herbal oil formulated with natural anti-inflammatory
+                            extracts to ease joint pain, muscle soreness, and body stiffness.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 4: Skincare -->
+                <div class="product-card reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #74A69D, #52796F);">
+                        <span class="product-category">Skincare</span>
+                        <div class="product-image-icon">
+                            <!-- Sun icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Natural Glow Face Cream</h3>
+                        <p class="product-desc">
+                            Enriched with Aloe Vera, Hibiscus, and Baobab extracts to nourish
+                            and rejuvenate your skin for a healthy, natural radiance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 5: Vitality -->
+                <div class="product-card reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #1B4332, #2D6A4F);">
+                        <span class="product-category">Vitality</span>
+                        <div class="product-image-icon">
+                            <!-- Zap/bolt icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Energy & Vitality Tonic</h3>
+                        <p class="product-desc">
+                            A revitalising blend of Ashwagandha, Mukombero, and Ginseng root
+                            to boost energy levels, reduce fatigue, and enhance overall vitality.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Product 6: Respiratory -->
+                <div class="product-card reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #3E5E55, #2D6A4F);">
+                        <span class="product-category">Respiratory</span>
+                        <div class="product-image-icon">
+                            <!-- Wind icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-name">Chest & Throat Relief Syrup</h3>
+                        <p class="product-desc">
+                            A soothing herbal syrup made from local extracts that helps clear
+                            congestion, ease coughs, and support healthy respiratory function.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== TRUST / BENEFITS SECTION ======================== -->
+    <section class="section section-green" id="trust">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">Trusted by Thousands Across Kenya</h2>
+                <p class="section-subtitle">
+                    We hold ourselves to the highest standards of quality, safety, and
+                    customer care — because your health deserves nothing less.
+                </p>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-card reveal">
+                    <div class="trust-icon">
+                        <!-- Leaf icon -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 17 3.5s1.4 1.5-.6 7.2A7 7 0 0 1 11 20z"/><path d="M11 20a7 7 0 0 0 7-7c0-6-4-9-4-9s-3 3-3 9z"/></svg>
+                    </div>
+                    <h3>100% Natural</h3>
+                    <p>
+                        Every product is made from pure, organically sourced herbs with
+                        zero artificial additives or chemicals.
+                    </p>
+                </div>
+
+                <div class="trust-card reveal">
+                    <div class="trust-icon">
+                        <!-- Check-circle icon -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Lab Tested</h3>
+                    <p>
+                        Our formulations undergo rigorous quality testing to ensure
+                        safety, potency, and consistency in every batch.
+                    </p>
+                </div>
+
+                <div class="trust-card reveal">
+                    <div class="trust-icon">
+                        <!-- Users icon -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Expert Herbalists</h3>
+                    <p>
+                        Our team includes experienced traditional herbalists who bring
+                        generations of knowledge to every product we create.
+                    </p>
+                </div>
+
+                <div class="trust-card reveal">
+                    <div class="trust-icon">
+                        <!-- Truck icon -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>
+                        We deliver across Kenya through trusted courier partners, with
+                        M-Pesa payment for a smooth, convenient experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== TESTIMONIALS SECTION ======================== -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-subtitle">
+                    Real stories from real people who have experienced the
+                    difference of natural herbal wellness.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <span class="testimonial-quote-mark">&ldquo;</span>
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        The Immunity Defence Blend has been a game-changer for my family.
+                        Since we started using it, we have noticed significantly fewer
+                        colds and my children are much healthier. I recommend it to everyone.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">GN</div>
+                        <div>
+                            <div class="testimonial-name">Grace Njeri</div>
+                            <div class="testimonial-location">Nairobi, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <span class="testimonial-quote-mark">&ldquo;</span>
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        I have struggled with joint pain for years. The Joint & Muscle Relief
+                        Oil works better than anything I have tried from the pharmacy. I am
+                        finally able to walk without discomfort. Thank you, ['Brand Name']!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JO</div>
+                        <div>
+                            <div class="testimonial-name">James Odhiambo</div>
+                            <div class="testimonial-location">Eldoret, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <span class="testimonial-quote-mark">&ldquo;</span>
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        The Natural Glow Face Cream is absolutely wonderful. My skin feels
+                        softer and looks brighter after just two weeks. I love that it is
+                        all natural — no harsh chemicals. My friends keep asking what I use!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SA</div>
+                        <div>
+                            <div class="testimonial-name">Sarah Abdi</div>
+                            <div class="testimonial-location">Mombasa, Kenya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== CONTACT SECTION ======================== -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Contact Us</span>
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">
+                    Have a question about our products or want to place an order?
+                    We would love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact information -->
+                <div class="reveal">
+                    <div class="contact-info-cards">
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <!-- Map-pin icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="contact-info-label">Visit Us</div>
+                            <div class="contact-info-value">Nairobi CBD, Kenya</div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <!-- Phone icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="contact-info-label">Call Us</div>
+                            <div class="contact-info-value">+254 123 456 7</div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <!-- Mail icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="contact-info-label">Email Us</div>
+                            <div class="contact-info-value">info@example.com</div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <!-- Clock icon -->
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="contact-info-label">Working Hours</div>
+                            <div class="contact-info-value">Mon – Sat, 8am – 6pm</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/2541234567" target="_blank" rel="noopener noreferrer" class="contact-whatsapp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand column -->
+                <div class="footer-brand">
+                    <h3>
+                        <!-- Leaf icon -->
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 17 3.5s1.4 1.5-.6 7.2A7 7 0 0 1 11 20z"/><path d="M11 20a7 7 0 0 0 7-7c0-6-4-9-4-9s-3 3-3 9z"/></svg>
+                        ['Brand Name']
+                    </h3>
+                    <p>
+                        Your trusted partner in natural herbal wellness. We bring Kenya's
+                        finest traditional remedies to your doorstep, bridging generational
+                        wisdom with modern quality standards.
+                    </p>
+                    <div class="footer-social">
+                        <!-- Facebook icon -->
+                        <a href="#" aria-label="Facebook">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <!-- Instagram icon -->
+                        <a href="#" aria-label="Instagram">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <!-- Twitter/X icon -->
+                        <a href="#" aria-label="Twitter">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <!-- TikTok icon -->
+                        <a href="#" aria-label="TikTok">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.93a8.28 8.28 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.34z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-item-icon">
+                            <!-- Map-pin icon -->
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </span>
+                        <span>Nairobi CBD, Kenya</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-item-icon">
+                            <!-- Phone icon -->
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </span>
+                        <span>+254 123 456 7</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-item-icon">
+                            <!-- Mail icon -->
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </span>
+                        <span>info@example.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-item-icon">
+                            <!-- Clock icon -->
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </span>
+                        <span>Mon – Sat, 8am – 6pm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer bottom bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 ['Brand Name']. All rights reserved.</p>
+                <p class="footer-powered">
+                    Powered By <a href="https://www.mortappsstudios.com" target="_blank" rel="noopener noreferrer">MortApps Studios</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <!-- Chevron-up icon -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+
+    <!-- ======================== JAVASCRIPT ======================== -->
+    <script>
+        /* =========================================================
+           ['Brand Name'] — Interactive Scripts
+           Built by MortApps Studios
+           ========================================================= */
+
+        (function () {
+            'use strict';
+
+            /* ---------- DOM References ---------- */
+            var navbar      = document.getElementById('navbar');
+            var hamburger   = document.getElementById('hamburger');
+            var mobileNav   = document.getElementById('mobileNav');
+            var backToTop   = document.getElementById('backToTop');
+
+            /* ---------- 1. Navbar scroll effect (throttled for mobile) ---------- */
+            var scrollTicking = false;
+
+            function handleScroll() {
+                if (scrollTicking) return;
+                scrollTicking = true;
+
+                requestAnimationFrame(function () {
+                    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+                    // Toggle scrolled class for background change
+                    if (scrollY > 60) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+
+                    // Back to top button visibility
+                    if (scrollY > 500) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+
+                    scrollTicking = false;
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Run on load
+
+            /* ---------- 2. Mobile menu toggle ---------- */
+            function toggleMobileMenu() {
+                hamburger.classList.toggle('open');
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            }
+
+            function closeMobileMenu() {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            hamburger.addEventListener('click', toggleMobileMenu);
+
+            // Keyboard accessibility for hamburger
+            hamburger.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleMobileMenu();
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            var mobileLinks = mobileNav.querySelectorAll('a');
+            mobileLinks.forEach(function (link) {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            /* ---------- 3. Active nav link on scroll ---------- */
+            var sections = document.querySelectorAll('section[id]');
+            var navLinksAll = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+            function updateActiveLink() {
+                var scrollY = window.pageYOffset + 120;
+
+                sections.forEach(function (section) {
+                    var top = section.offsetTop;
+                    var height = section.offsetHeight;
+                    var id = section.getAttribute('id');
+
+                    if (scrollY >= top && scrollY < top + height) {
+                        navLinksAll.forEach(function (link) {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+            /* ---------- 4. Back to top ---------- */
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            /* ---------- 5. Scroll reveal animation ---------- */
+            var revealElements = document.querySelectorAll('.reveal');
+
+            var revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(function (el) {
+                revealObserver.observe(el);
+            });
+
+            /* ---------- 6. Disable right-click context menu ---------- */
+            document.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+            });
+
+            /* ---------- 7. Disable developer tools shortcuts ---------- */
+            document.addEventListener('keydown', function (e) {
+                // F12 — Developer Tools
+                if (e.key === 'F12') {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Ctrl+Shift+I — Developer Tools
+                if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Ctrl+Shift+J — Console
+                if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Ctrl+Shift+C — Element Inspector
+                if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Ctrl+U — View Source
+                if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+                    e.preventDefault();
+                    return;
+                }
+
+                // Ctrl+S — Save Page
+                if (e.ctrlKey && (e.key === 'S' || e.key === 's')) {
+                    e.preventDefault();
+                    return;
+                }
+            });
+
+            /* ---------- 8. Smooth scroll for anchor links ---------- */
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    var targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    var targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        var navHeight = navbar.offsetHeight;
+                        var targetPosition = targetEl.offsetTop - navHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
